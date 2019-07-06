@@ -6,12 +6,8 @@
 2. **Navigate to this project's root directory on the command line.**
 3. **Install Node Packages.** - `npm install`
 4. **Install [React developer tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en) and [Redux Dev Tools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en)** in Chrome.
-5. **Instal [Atom](https://atom.io/)** and the **[react](https://orktes.github.io/atom-react/)**, **[Prettier for Atom](https://github.com/prettier/prettier-atom)** packages.
+5. **Instal [Visual Studio Code](https://code.visualstudio.com/)** and the **Eslint** and **Prettier** packages.
 6. Having issues? See below.
-
-## Useful tips
-
-- Press `ctrl + shift + m` to display the Markdown Preview
 
 ## Having Issues? Try these things first:
 
