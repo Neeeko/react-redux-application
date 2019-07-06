@@ -1,4 +1,4 @@
-# Starter Kit for [Building Applications in React and Redux](http://www.pluralsight.com/author/cory-house) on Pluralsight
+# Starter Kit for React & Redux development
 
 ## Get Started
 
@@ -6,7 +6,12 @@
 2. **Navigate to this project's root directory on the command line.**
 3. **Install Node Packages.** - `npm install`
 4. **Install [React developer tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en) and [Redux Dev Tools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en)** in Chrome.
-5. Having issues? See below.
+5. **Instal [Atom](https://atom.io/)** and the **[react](https://orktes.github.io/atom-react/)**, **[Prettier for Atom](https://github.com/prettier/prettier-atom)** packages.
+6. Having issues? See below.
+
+## Useful tips
+
+- Press `ctrl + shift + m` to display the Markdown Preview
 
 ## Having Issues? Try these things first:
 
