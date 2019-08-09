@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
 import * as authorActions from "../../redux/actions/authorActions";
 import * as courseActions from "../../redux/actions/courseActions";
 import PropTypes from "prop-types";
@@ -9,6 +10,10 @@ import CourseList from "./CourseList";
 // We could use React Hooks instead of class
 // We're using Class Fields and don't have to worry about binding this
 class CoursesPage extends React.Component {
+  state = {
+    redirectToAddCoursePage: false
+  };
+
   componentDidMount() {
     const { actions, authors, courses } = this.props;
 
@@ -27,7 +32,15 @@ class CoursesPage extends React.Component {
   render() {
     return (
       <>
+        {this.state.redirectToAddCoursePage && <Redirect to="/course" />}
         <h2>Courses</h2>
+        <button
+          style={{ marginBottom: 20 }}
+          className="btn btn-primary add-course"
+          onClick={() => this.setState({ redirectToAddCoursePage: true })}
+        >
+          Add Course
+        </button>
         <CourseList courses={this.props.courses} />
       </>
     );
