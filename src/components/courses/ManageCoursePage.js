@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
+import { toast } from "react-toastify";
 import * as authorActions from "../../redux/actions/authorActions";
 import * as courseActions from "../../redux/actions/courseActions";
 import PropTypes from "prop-types";
 import CourseForm from "./CourseForm";
+import Spinner from "../common/Spinner";
 import { newCourse } from "../../../tools/mockData";
 
 // history props is provided by react-router
@@ -19,6 +21,7 @@ function ManageCoursePage({
   // useState declares a new state and its setter
   const [course, setCourse] = useState({ ...props.course });
   const [errors, setErrors] = useState({});
+  const [saving, setSaving] = useState(false);
 
   useEffect(() => {
     if (authors.length === 0) {
@@ -44,20 +47,44 @@ function ManageCoursePage({
     }));
   }
 
-  function handleSave(event) {
-    event.preventDefault();
-    saveCourse(course).then(() => {
-      history.push("/courses");
-    });
+  function isFormValid() {
+    const { title, authorId, category } = course;
+    const errors = {};
+
+    if (!title) errors.title = "Title is required.";
+    if (!authorId) errors.author = "Author is required.";
+    if (!category) errors.category = "Category is required.";
+
+    setErrors(errors);
+    return Object.keys(errors).length === 0;
   }
 
-  return (
+  function handleSave(event) {
+    event.preventDefault();
+    if (!isFormValid()) return;
+    setSaving(true);
+    saveCourse(course)
+      .then(() => {
+        toast.success("Course saved!");
+        history.push("/courses");
+      })
+      .catch(error => {
+        setSaving(false);
+        // used on CourseForm
+        setErrors({ onSave: error.message });
+      });
+  }
+
+  return authors.length === 0 || courses.length === 0 ? (
+    <Spinner />
+  ) : (
     <CourseForm
       course={course}
       errors={errors}
       authors={authors}
       onChange={handleChange}
       onSave={handleSave}
+      saving={saving}
     />
   );
 }
