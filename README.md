@@ -69,3 +69,16 @@
 | webpack-bundle-analyzer         | Generate report of what's in the app's production bundle         |
 | webpack-cli                     | Run Webpack via the command line                                 |
 | webpack-dev-server              | Serve app via Webpack                                            |
+
+### Challenges
+
+- Author administration (with logic to make sure you can't delete an author linked to a course)
+- Filter course list
+- Hide empty course list
+- "Unsaved changes" message
+- Enhance validation in the Course Form to enforce the data provided by the user
+- Handle 404 on edit course when the course doesn't exist (thanks to mapStateToProps)
+- Show amount of courses in Header
+- Add pagination
+- Sort course table alphabetically (+ dropdown to change sorting source! with mapStateToProps)
+- Revert abandoned changes (keep the old course data history with an undo button)
