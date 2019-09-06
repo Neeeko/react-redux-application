@@ -9,7 +9,8 @@ import Spinner from "../common/Spinner";
 import { newCourse } from "../../../tools/mockData";
 
 // history props is provided by react-router
-function ManageCoursePage({
+// export unconnected component (for testing)
+export function ManageCoursePage({
   authors,
   courses,
   loadAuthors,
@@ -123,6 +124,7 @@ const mapDispatchToProps = {
   saveCourse: courseActions.saveCourse
 };
 
+// export redux connected component (default)
 export default connect(
   mapStateToProps,
   mapDispatchToProps
